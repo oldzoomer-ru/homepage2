@@ -1,6 +1,6 @@
-package com.example.application.base.ui;
+package ru.oldzoomer.application.base.ui;
 
-import com.example.application.base.ui.component.ViewToolbar;
+import ru.oldzoomer.application.base.ui.component.ViewToolbar;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.Main;
 import com.vaadin.flow.component.html.Paragraph;

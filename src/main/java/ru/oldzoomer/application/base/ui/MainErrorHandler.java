@@ -1,4 +1,4 @@
-package com.example.application.base.ui;
+package ru.oldzoomer.application.base.ui;
 
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.notification.Notification;
