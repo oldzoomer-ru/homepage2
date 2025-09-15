@@ -10,24 +10,28 @@
     --accent-fg-color: #ffffff;
 }
 
-[data-theme="dark"] {
-    --window-bg-color: #222226;
-    --window-fg-color: #ffffff;
-    --card-bg-color: rgba(255, 255, 255, 0.08);
-    --card-fg-color: #ffffff;
-    --accent-bg-color: #3584e4;
-    --accent-fg-color: #ffffff;
-    color-scheme: dark;
+@media (prefers-color-scheme: dark) {
+    * {
+        --window-bg-color: #222226;
+        --window-fg-color: #ffffff;
+        --card-bg-color: rgba(255, 255, 255, 0.08);
+        --card-fg-color: #ffffff;
+        --accent-bg-color: #3584e4;
+        --accent-fg-color: #ffffff;
+        color-scheme: dark;
+    }
 }
 
-[data-theme="light"] {
-    --window-bg-color: #fafafb;
-    --window-fg-color: rgba(0, 0, 6, 0.8);
-    --card-bg-color: #ffffff;
-    --card-fg-color: rgba(0, 0, 6, 0.8);
-    --accent-bg-color: #3584e4;
-    --accent-fg-color: #ffffff;
-    color-scheme: light;
+@media (prefers-color-scheme: light) {
+    * {
+        --window-bg-color: #fafafb;
+        --window-fg-color: rgba(0, 0, 6, 0.8);
+        --card-bg-color: #ffffff;
+        --card-fg-color: rgba(0, 0, 6, 0.8);
+        --accent-bg-color: #3584e4;
+        --accent-fg-color: #ffffff;
+        color-scheme: light;
+    }
 }
 
 /* Подключение шрифта */
@@ -85,15 +89,6 @@ html {
     .tablet {
         width: 95% !important;
     }
-}
-
-/* Дополнительные стили для темной темы (применяются автоматически) */
-[data-theme="dark"] {
-    color-scheme: dark;
-}
-
-[data-theme="light"] {
-    color-scheme: light;
 }
 
 /* Стили для переходов между темами */
