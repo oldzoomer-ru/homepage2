@@ -9,17 +9,9 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - ./traefik:/etc/traefik
+      - ./traefik/acme.json:/etc/traefik/acme.json
     command:
-      - "--providers.docker=true"
-      - "--providers.docker.exposedbydefault=false"
-      - "--providers.file.directory=/etc/traefik"
-      - "--entrypoints.web.address=:80"
-      - "--entrypoints.websecure.address=:443"
-      - "--entrypoints.websecure.http.tls=true"
-      - "--certificatesresolvers.letsencrypt.acme.email=webmaster@oldzoomer.ru"
-      - "--certificatesresolvers.letsencrypt.acme.httpchallenge=true"
-      - "--certificatesresolvers.letsencrypt.acme.httpchallenge.entrypoint=web"
-      - "--api.insecure=true"
+      - "--configFile=/etc/traefik/traefik.yml"
     networks:
       - traefik-net
 
@@ -29,16 +21,6 @@ services:
     restart: unless-stopped
     environment:
       - SERVER_PORT=8080
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.homepage.rule=Host(`oldzoomer.ru`) || Host(`www.oldzoomer.ru`)"
-      - "traefik.http.routers.homepage.entrypoints=websecure"
-      - "traefik.http.routers.homepage.tls.certresolver=letsencrypt"
-      - "traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https"
-      - "traefik.http.routers.homepage-redirect.rule=Host(`oldzoomer.ru`) || Host(`www.oldzoomer.ru`)"
-      - "traefik.http.routers.homepage-redirect.entrypoints=web"
-      - "traefik.http.routers.homepage-redirect.middlewares=redirect-to-https"
-      - "traefik.http.services.homepage.loadbalancer.server.port=8080"
     networks:
       - traefik-net
 
