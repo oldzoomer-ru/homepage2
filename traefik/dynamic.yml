@@ -1,0 +1,34 @@
+http:
+  routers:
+    homepage:
+      rule: "Host(`oldzoomer.ru`) || Host(`www.oldzoomer.ru`)"
+      entryPoints:
+        - "websecure"
+      service: "homepage"
+      tls:
+        certResolver: "letsencrypt"
+
+    homepage-redirect:
+      rule: "Host(`oldzoomer.ru`) || Host(`www.oldzoomer.ru`)"
+      entryPoints:
+        - "web"
+      service: "homepage-redirect"
+      middlewares:
+        - "redirect-to-https"
+
+  services:
+    homepage:
+      loadBalancer:
+        servers:
+          - url: "http://homepage:8080"
+
+    homepage-redirect:
+      loadBalancer:
+        servers:
+          - url: "http://homepage:8080"
+
+  middlewares:
+    redirect-to-https:
+      redirectScheme:
+        scheme: "https"
+        permanent: true
