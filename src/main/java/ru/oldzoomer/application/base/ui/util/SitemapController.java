@@ -1,4 +1,4 @@
-package ru.oldzoomer.application.base.ui;
+package ru.oldzoomer.application.base.ui.util;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
