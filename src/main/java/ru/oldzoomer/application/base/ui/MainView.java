@@ -1,17 +1,22 @@
 package ru.oldzoomer.application.base.ui;
 
 import com.vaadin.flow.component.html.Main;
-import com.vaadin.flow.router.Menu;
-import com.vaadin.flow.router.Route;
+import com.vaadin.flow.router.RouterLayout;
+
+import ru.oldzoomer.application.base.ui.styles.StyleUtils;
+import ru.oldzoomer.application.base.ui.styles.ThemeManager;
 
 /**
- * This view shows up when a user navigates to the root ('/') of the application.
+ * Главная страница - корневой view приложения
  */
-@Route
-@Menu(order = -100, icon = "vaadin:home", title = "Welcome!")
-public final class MainView extends Main {
+public final class MainView extends Main implements RouterLayout {
 
-    MainView() {
+    public MainView() {
+        // Применяем стили основного контейнера
+        StyleUtils.applyBodyStyle(this);
+        StyleUtils.applyBaseStyle(this);
         
+        // Инициализируем темы и responsive стили
+        ThemeManager.initializeRootStyles(this);
     }
 }

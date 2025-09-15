@@ -1,0 +1,49 @@
+/* Минимальный CSS файл для статических ресурсов */
+
+/* Подключение шрифта */
+@font-face {
+    font-family: "Cantarell";
+    src: url('./Cantarell-VF.woff2') format('woff2');
+    font-weight: 500 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Базовые стили для статических страниц (если используются) */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Cantarell", sans-serif;
+    word-wrap: break-word;
+}
+
+/* Hover эффекты для ссылок */
+a:hover, a:focus {
+    text-decoration: underline;
+    outline: none;
+}
+
+/* Focus стили для доступности */
+:focus-visible {
+    outline: 2px solid #3584e4;
+    outline-offset: 2px;
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Print styles */
+@media print {
+    body {
+        background-color: transparent;
+        color: #000;
+    }
+    
+    a {
+        color: #000;
+        text-decoration: underline;
+    }
+}

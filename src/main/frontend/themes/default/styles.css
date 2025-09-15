@@ -1,1 +1,102 @@
-/* Add your styles here */
+/* Минимальный CSS файл для поддержки псевдоклассов и эффектов, которые нельзя реализовать через Java */
+
+/* CSS переменные для тем */
+:root {
+    --window-bg-color: #fafafb;
+    --window-fg-color: rgba(0, 0, 6, 0.8);
+    --card-bg-color: #ffffff;
+    --card-fg-color: rgba(0, 0, 6, 0.8);
+    --accent-bg-color: #3584e4;
+    --accent-fg-color: #ffffff;
+}
+
+[data-theme="dark"] {
+    --window-bg-color: #222226;
+    --window-fg-color: #ffffff;
+    --card-bg-color: rgba(255, 255, 255, 0.08);
+    --card-fg-color: #ffffff;
+    --accent-bg-color: #3584e4;
+    --accent-fg-color: #ffffff;
+    color-scheme: dark;
+}
+
+[data-theme="light"] {
+    --window-bg-color: #fafafb;
+    --window-fg-color: rgba(0, 0, 6, 0.8);
+    --card-bg-color: #ffffff;
+    --card-fg-color: rgba(0, 0, 6, 0.8);
+    --accent-bg-color: #3584e4;
+    --accent-fg-color: #ffffff;
+    color-scheme: light;
+}
+
+/* Подключение шрифта */
+@font-face {
+    font-family: "Cantarell";
+    src: url('./Cantarell-VF.woff2') format('woff2');
+    font-weight: 500 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Установка шрифта для Vaadin */
+html {
+    --lumo-font-family: "Cantarell", sans-serif;
+}
+
+/* Hover эффекты для ссылок */
+a:hover, a:focus {
+    text-decoration: underline !important;
+    outline: none !important;
+}
+
+/* Стили для активируемых элементов (класс добавляется через Java) */
+.activatable-java:hover, .activatable-java:focus {
+    text-decoration: underline !important;
+    outline: none !important;
+}
+
+/* Focus стили для доступности */
+:focus-visible {
+    outline: 2px solid #3584e4 !important;
+    outline-offset: 2px !important;
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Print styles */
+@media print {
+    body {
+        background-color: transparent !important;
+        color: #000 !important;
+    }
+    
+    a {
+        color: #000 !important;
+        text-decoration: underline !important;
+    }
+}
+
+/* Responsive стили для контейнеров (дополнение к Java стилям) */
+@media (max-width: 768px) {
+    .tablet {
+        width: 95% !important;
+    }
+}
+
+/* Дополнительные стили для темной темы (применяются автоматически) */
+[data-theme="dark"] {
+    color-scheme: dark;
+}
+
+[data-theme="light"] {
+    color-scheme: light;
+}
+
+/* Стили для переходов между темами */
+* {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
