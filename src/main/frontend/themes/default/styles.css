@@ -33,7 +33,7 @@
 /* Подключение шрифта */
 @font-face {
     font-family: "Cantarell";
-    src: url('../Cantarell-VF.woff2') format('woff2');
+    src: url('/Cantarell-VF.woff2') format('woff2');
     font-weight: 500 800;
     font-style: normal;
     font-display: swap;
