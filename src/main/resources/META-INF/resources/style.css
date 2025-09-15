@@ -1,14 +1,5 @@
 /* Минимальный CSS файл для статических ресурсов */
 
-/* Подключение шрифта */
-@font-face {
-    font-family: "Cantarell";
-    src: url('./Cantarell-VF.woff2') format('woff2');
-    font-weight: 500 800;
-    font-style: normal;
-    font-display: swap;
-}
-
 /* Базовые стили для статических страниц (если используются) */
 * {
     box-sizing: border-box;
