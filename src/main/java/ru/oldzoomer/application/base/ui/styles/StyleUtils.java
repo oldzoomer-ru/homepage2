@@ -1,7 +1,6 @@
 package ru.oldzoomer.application.base.ui.styles;
 
 import com.vaadin.flow.component.Component;
-import com.vaadin.flow.component.HasStyle;
 import com.vaadin.flow.dom.Style;
 import com.vaadin.flow.dom.Style.AlignItems;
 import com.vaadin.flow.dom.Style.Display;
@@ -130,18 +129,7 @@ public final class StyleUtils {
         applyLinkStyle(component);
         // Добавляем hover эффекты через CSS класс, так как Java не поддерживает
         // псевдоклассы
-        if (component instanceof HasStyle) {
-            ((HasStyle) component).addClassName("activatable-java");
-        }
-    }
-
-    /**
-     * Применяет стили фокуса для доступности
-     */
-    public static void applyFocusStyle(Component component) {
-        Style style = component.getElement().getStyle();
-        style.set("outline", StyleConstants.FOCUS_OUTLINE);
-        style.set("outline-offset", StyleConstants.FOCUS_OUTLINE_OFFSET);
+        component.addClassName("activatable-java");
     }
 
     /**
@@ -155,65 +143,4 @@ public final class StyleUtils {
         style.set("word-wrap", "break-word");
     }
 
-    /**
-     * Применяет responsive стили для планшетов
-     */
-    public static void applyTabletStyles(Component component, String elementType) {
-        Style style = component.getElement().getStyle();
-
-        switch (elementType) {
-            case "title-1":
-                style.setFontSize(StyleConstants.TITLE_1_SIZE_TABLET);
-                break;
-            case "title-2":
-                style.setFontSize(StyleConstants.TITLE_2_SIZE_TABLET);
-                break;
-            case "content-padding":
-                style.setPadding(StyleConstants.CONTENT_PADDING_TABLET);
-                break;
-            case "content-width":
-                style.setWidth("95%");
-                break;
-        }
-    }
-
-    /**
-     * Применяет responsive стили для мобильных устройств
-     */
-    public static void applyMobileStyles(Component component, String elementType) {
-        Style style = component.getElement().getStyle();
-
-        switch (elementType) {
-            case "title-1":
-                style.setFontSize(StyleConstants.TITLE_1_SIZE_MOBILE);
-                break;
-            case "title-2":
-                style.setFontSize(StyleConstants.TITLE_2_SIZE_MOBILE);
-                break;
-            case "content-padding":
-                style.setPadding(StyleConstants.CONTENT_PADDING_MOBILE);
-                break;
-        }
-    }
-
-    /**
-     * Применяет темную тему к компоненту
-     */
-    public static void applyDarkTheme(Component component, String elementType) {
-        Style style = component.getElement().getStyle();
-
-        switch (elementType) {
-            case "body":
-                style.setBackgroundColor(StyleConstants.WINDOW_BG_COLOR_DARK);
-                style.setColor(StyleConstants.WINDOW_FG_COLOR_DARK);
-                break;
-            case "card":
-                style.setBackgroundColor(StyleConstants.CARD_BG_COLOR_DARK);
-                style.setColor(StyleConstants.CARD_FG_COLOR_DARK);
-                break;
-            case "text":
-                style.setColor(StyleConstants.WINDOW_FG_COLOR_DARK);
-                break;
-        }
-    }
 }
